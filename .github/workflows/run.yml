@@ -1,5 +1,5 @@
-name: 刷步数09041640
-
+name: 刷步数
+##运行时间和步数：21.00	UTC13.00	STEP=17624-21355
 on:
   push:
     branches: [ master ]
@@ -7,7 +7,7 @@ on:
     branches: [ master ]
   # workflow_dispatch: # 手动触发
   schedule:
-    - cron: 0 9 * * *
+    - cron: 0 13 * * *
 
 jobs:
   build:
