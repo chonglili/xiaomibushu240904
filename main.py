@@ -81,7 +81,7 @@ def main(user, passwd, step):
         print("登陆失败！")
         return "login fail!"
  
-    t = get_time()
+    t = get_timestamp()
      
     app_token = get_app_token(login_token)
  
@@ -94,7 +94,7 @@ def main(user, passwd, step):
     data_json = re.sub(finddate.findall(data_json)[0], today, str(data_json))
     data_json = re.sub(findstep.findall(data_json)[0], step, str(data_json))
      
-    url = f'https://api-mifit-cn.huami.com/v1/data/band_data.json?&t={get_timestamp}'
+    url = f'https://api-mifit-cn.huami.com/v1/data/band_data.json?&t={t}'
     head = {
         "apptoken": app_token,
         "Content-Type": "application/x-www-form-urlencoded"
