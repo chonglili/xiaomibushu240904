@@ -88,7 +88,7 @@ def main(user, passwd, step):
     data_json = re.sub(finddate.findall(data_json)[0], today, str(data_json))
     data_json = re.sub(findstep.findall(data_json)[0], step, str(data_json))
      
-    url = f'https://api-mifit-cn.huami.com/v1/data/band_data.json?&t={t}'
+    url = f'https://api-mifit-cn.huami.com/v1/data/band_data.json?&t={get_timestamp}'
     head = {
         "apptoken": app_token,
         "Content-Type": "application/x-www-form-urlencoded"
@@ -108,7 +108,12 @@ def get_time():
     response = requests.get(url,headers=headers).json()
     t = response['data']['t']
     return t
-  
+
+# 13位时间戳
+def get_timestamp():
+    return str(int(time.time() * 1000))
+
+
 #获取app_token
 def get_app_token(login_token):
     url = f"https://account-cn.huami.com/v1/client/app_tokens?app_name=com.xiaomi.hm.health&dn=api-user.huami.com%2Capi-mifit.huami.com%2Capp-analytics.huami.com&login_token={login_token}"
