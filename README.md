@@ -34,6 +34,9 @@
 
 需要运行的时间-8就是UTC时间，比如上午9点，9-8=1，则cron: 0 1 * * *
 
+### 240909 添加自定义步数变量，STEP1 STEP2 STEP3,进行步数增加，从而在不同的run1.yml ruan2.yml...中采用不同的step1 step2,实现步数的增加
+
+
 ### 五、启动
 
 > Actions-->点击“I understand my workflows, go ahead and enable them”-->All workflows-->刷步数-->点击“Enable workflow”
