@@ -7,7 +7,13 @@ now = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
 headers = {
         'User-Agent': 'Dalvik/2.1.0 (Linux; U; Android 9; MI 6 MIUI/20.6.18)'
         }
- 
+
+
+# 13位时间戳
+def get_timestamp():
+    return str(int(time.time() * 1000))
+
+
 #获取登录code
 def get_code(location):
     code_pattern = re.compile("(?<=access=).*?(?=&)")
@@ -102,12 +108,6 @@ def main(user, passwd, step):
     print(result)
     return result
   
-
-
-# 13位时间戳
-def get_timestamp():
-    return str(int(time.time() * 1000))
-
 
 #获取app_token
 def get_app_token(login_token):
