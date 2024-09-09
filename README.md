@@ -10,7 +10,9 @@
 
 添加名为 **USER**、**PWD**、**STEP** 的变量，值分别为 **账号（仅支持手机号）**、**密码**、**步数（0则为18000-25000之间随机 或自定义随机范围[18000-25000]）**
 
-> Settings-->Secrets-->New secret
+> settings> secrets and variables> secrets> actions Repository secrets
+
+
 
 ### 三、多账户(用不上请忽略)
 
@@ -45,3 +47,10 @@
 3. 启动时间得是UTC时间!
 
 4. 如果支付宝没有更新步数,到小米运动->设置->账号->注销账号->清空数据,然后重新登录,重新绑定第三方
+
+5. 更新了获取时间戳的方式为本地获取，淘宝的很多时候连不上
+    把原文的t=get_time()  变为get_timestamp()，并把时间戳换成下边这个即可
+   # 13位时间戳
+    def get_timestamp():
+    return str(int(time.time() * 1000))
+
