@@ -50,7 +50,7 @@
 
 5. 更新了获取时间戳的方式为本地获取，淘宝的很多时候连不上
     把原文的t=get_time()  变为get_timestamp()，并把时间戳换成下边这个即可
-   # 13位时间戳
+   改：# 13位时间戳
     def get_timestamp():
     return str(int(time.time() * 1000))
 
