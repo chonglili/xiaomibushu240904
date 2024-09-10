@@ -4,21 +4,19 @@
 import math
 import traceback
 from datetime import datetime
-import pytz
 import json
 import random
 import re
 import time
 import os
+import arrow
 import requests
-
 
 
 # 获取北京时间
 def get_beijing_time():
-    target_timezone = pytz.timezone('Asia/Shanghai')
-    # 获取当前时间
-    return datetime.now().astimezone(target_timezone)
+    return arrow.now('Asia/Shanghai')
+
 # 获取时间戳
 def get_time():
     current_time = get_beijing_time()
