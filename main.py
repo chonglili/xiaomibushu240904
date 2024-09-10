@@ -1,17 +1,28 @@
 # -*- coding: utf8 -*-
 # python >=3.8
 
-import requests,time,re,json,random
+import math
+import traceback
+from datetime import datetime
+import pytz
+import json
+import random
+import re
+import time
+import os
+import requests
 
-now = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-headers = {
-        'User-Agent': 'Dalvik/2.1.0 (Linux; U; Android 9; MI 6 MIUI/20.6.18)'
-        }
 
 
-# 13位时间戳
-def get_timestamp():
-    return str(int(time.time() * 1000))
+# 获取北京时间
+def get_beijing_time():
+    target_timezone = pytz.timezone('Asia/Shanghai')
+    # 获取当前时间
+    return datetime.now().astimezone(target_timezone)
+# 获取时间戳
+def get_time():
+    current_time = get_beijing_time()
+    return "%.0f" % (current_time.timestamp() * 1000)
 
 
 #获取登录code
@@ -81,7 +92,7 @@ def main(user, passwd, step):
         print("登陆失败！")
         return "login fail!"
  
-    t = get_timestamp()
+    t = get_time()
      
     app_token = get_app_token(login_token)
  
