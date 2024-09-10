@@ -13,17 +13,18 @@ import requests
 # 获取北京时间
 def get_beijing_time():
     return arrow.now('Asia/Shanghai')
-
+# 定义now
+def now():
+    return get_beijing_time().strftime("%Y-%m-%d %H:%M:%S")
 # 获取时间戳
 def get_time():
     current_time = get_beijing_time()
     return "%.0f" % (current_time.timestamp() * 1000)
 
+# 定义headers
 headers = {
         'User-Agent': 'Dalvik/2.1.0 (Linux; U; Android 9; MI 6 MIUI/20.6.18)'
         }
-def now():
-    return get_beijing_time().strftime("%Y-%m-%d %H:%M:%S")
 
 #获取登录code
 def get_code(location):
