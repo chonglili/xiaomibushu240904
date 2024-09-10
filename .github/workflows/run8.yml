@@ -1,5 +1,5 @@
 name: 刷步数8.00
-##运行时间和步数：7.00	UTC23.30	STEP7=3053-6166
+##运行时间和步数：8.00	UTC23.30	STEP7=3053-6166
 on:
   push:
     branches: [ master ]
@@ -7,12 +7,11 @@ on:
     branches: [ master ]
   # workflow_dispatch: # 手动触发
   schedule:
-    - cron: 36 0 * * *
+    - cron: 6 0 * * *
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    #if: github.event.repository.owner.id == github.event.sender.id#
 
     steps:
     - uses: actions/checkout@v3.1.0
@@ -23,6 +22,7 @@ jobs:
     - name: 开始
       run: |
         pip install requests
+        pip install arrow
         user='${{ secrets.USER }}'
         pwd='${{ secrets.PWD }}'
         step='${{ secrets.STEP7 }}'
