@@ -22,7 +22,8 @@ def get_time():
 headers = {
         'User-Agent': 'Dalvik/2.1.0 (Linux; U; Android 9; MI 6 MIUI/20.6.18)'
         }
-
+def now():
+    return get_beijing_time().strftime("%Y-%m-%d %H:%M:%S")
 
 #获取登录code
 def get_code(location):
