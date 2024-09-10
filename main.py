@@ -19,6 +19,10 @@ def get_time():
     current_time = get_beijing_time()
     return "%.0f" % (current_time.timestamp() * 1000)
 
+headers = {
+        'User-Agent': 'Dalvik/2.1.0 (Linux; U; Android 9; MI 6 MIUI/20.6.18)'
+        }
+
 
 #获取登录code
 def get_code(location):
