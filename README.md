@@ -56,4 +56,8 @@
    改：# 13位时间戳
     def get_timestamp():
     return str(int(time.time() * 1000))
+   或修改为调用北京时间并改为毫秒级时间戳
+   def get_time():
+    current_time = get_beijing_time()
+    return "%.0f" % (current_time.timestamp() * 1000)
 
